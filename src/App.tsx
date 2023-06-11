@@ -13,22 +13,20 @@ interface Post {
     role: string;
     avatarUrl: string;
   };
-  content: Content[];
+  content: {
+    type: "paragraph" | "link";
+    content: string;
+  }[];
   publishedAt: Date;
 }
 
-interface Content {
-  type: "paragraph" | "link";
-  content: string;
-}
-
-const posts: Post = [
+const posts: Post[] = [
   {
     id: 1,
     author: {
-      avatarUrl: "https://github.com/MichelHoffmann.png",
       name: "Michel Hoffmann",
       role: "Web Developer",
+      avatarUrl: "https://github.com/MichelHoffmann.png",
     },
     content: [
       { type: "paragraph", content: "Fala galeraa" },
